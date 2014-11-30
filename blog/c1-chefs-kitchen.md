@@ -1,0 +1,17 @@
+Chefs in the Kitchen
+
+Shereef's Fireside Chat
+
+30/11/2014
+
+EDA is a new take on education, it uses a bootcamp template that a group of people get together, work together and work hard in a short space of time. EDA caters towards the creative, problem solving individual that wants to be able to express them selves in a way in which they haven't been able to in the past. 
+
+The kitchen mindset is an idea/mindset that everyone is in this together, no one knows everything or even anything about some things. We look at problems and with communication and problem solving know-how we solve them, rather than complaining about them.
+
+I did initially feel like EDA might be more of a school style experience where you just get given some information and told "learn it". It is nice to know that this is already very different, EDA feels much more intuitive to my personal learning style. I am excited to learn and more frustrated that I don't have more time to practice/play around while I work full time in this first phase.
+
+I am both excited and nervous, but I am most of all looking forward. Looking forward to the next challenege, the next thing to learn, and to the beginning of my new career.
+
+Thanks for listening
+
+Julian
