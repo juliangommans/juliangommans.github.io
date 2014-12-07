@@ -1,0 +1,29 @@
+#post-title {
+}
+
+.subheadings {
+	display: inline-block;
+}
+
+#author {
+	width:25%;
+	float: left;
+}
+
+#date-time {
+	width:15%;
+}
+
+#category {
+	width:30%;
+	float: right;
+}
+
+#content {
+	
+}
+
+
+div {
+
+}
