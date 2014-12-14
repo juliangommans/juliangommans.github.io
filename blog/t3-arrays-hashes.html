@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="../stylesheets/blog-stylesheet.css" />
+    <title></title>
+  </head>
+  <body>
+    <div id="post-title"><h2><span class="rainbow">Arrays vs Hashes</span></h2></div>
+    <div class="subheadings" id="author">Julian Gommans</div>
+    <div class="subheadings" id="date-time">14/12/2014</div>
+    <div class="subheadings" id="category">Technical Blog</div>
+    <div id="content"> What is the difference between an Array and a Hash?
+
+      Arrays and Hashes may appear similar when you first encounter them but they have key (a pun that will become aparent later) differences that separate them.
+
+      An Array is an ordered collection of information. This serves many useful purposes kind of like making a shopping list. In ruby an array is displayed as so: dummy_array = ["a", "b", 1, 2, "chimpanzee"]
+
+      Arrays are more commonly used for a single data type although you can mix string and integers. While an array i an incredibly useful tool, what if you want to associate things in the list with something else? Such as keeping a tally?
+
+      This is where Hashes come in. A Hash is kind of like 2 (or more) intertwined arrays. You have a list of "Keys" and "Values" which are directly associated to the Keys. The most obvious/common example would be a tally. If you wanted to keep a record of the number of times a word pops up in a paragraph/sentence/book then a Hash would be exactly what you were looking for.
+
+      A hash is wrtten in Ruby as follows: dummy_hash = {key_1 => value_1, key_2 => value_2} the => (rocket) is showing you what is directly linked to the key. A comma separates the differing keys. Think of it like a table. Column 1 is the Key, Column 2 is the Value, and each comma is creating a new row.
+
+      You can use a hash for a rating system "ratings = { "The Matrix" => "5/5", "Birdemic" => "1/5", "Interstellar" => "6/5"}" and when you print/puts the variable "ratings" it will output the title of the movie and it's rating. You could even use it to mess with someone in by making it replace words that they type in with other words in the output like: " word_voodoo = {"I" => "me", "love" => "hate"} and through some methods whenever they type a word in their input that corrolates with one of your keys it will instead output the value... but only the most evil people would do such a thing
+
+      Hopefully this has shown how useful arrays and hashes can be and why/how they are different.
+
+      Thanks for reading
+      Julian
+    </div>
+  </body>
+</html>
