@@ -40,6 +40,9 @@ img {
   background-clip: text;
 }
 
+/* New Table */
+
+
 /*
 td {
     height: 50px;
@@ -53,7 +56,7 @@ td {
 */
 
 
-/* Nav Bar teste */
+/* Nav Bar teste 
 
 nav ul ul {
 	display: none;
@@ -114,7 +117,7 @@ nav ul ul ul {
 }
 	
 	
-	
+	*/
 	
 .links {
         color: black;
@@ -135,13 +138,14 @@ nav ul ul ul {
     float: right;
 }
 
+/* Temporary removal
 .sidebar {
     text-align: center;
     width: 18%;
     display: inline-block;
     float: left;
 }
-
+*/
 
 #sociallinks {
     text-align: right;
