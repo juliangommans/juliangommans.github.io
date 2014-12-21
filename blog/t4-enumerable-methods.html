@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="../stylesheets/blog-stylesheet.css" />
+    <title></title>
+  </head>
+  <body>
+    <div id="post-title"><h2><span class="rainbow">Enumerables and maps</span></h2></div>
+    <div class="subheadings" id="author">Julian Gommans</div>
+    <div class="subheadings" id="date-time">21/12/2014</div>
+    <div class="subheadings" id="category">Technical Blog</div>
+    <div id="content">What is an enumerable and what is a map?
+
+      An Enumerable is something used in coding, in this instance Ruby, is a class of methods that allows you several ways of searching, sorting and modify a body of information.
+
+      Map is an enumerable that allows the user to manipulate each individual elements of an array by putting them into a new array. This allows you to manipulate an array without modifying the original data.
+
+      An example where this might be useful is if you wanted to find out the cube (or any exponent) of a group of numbers.
+
+      For example:
+      def exponents(array)
+        array.map{|x| x**3}
+      end
+      
+      Now if you call the method "exponents" with any array of numbers in the brackets, eg [1,2,3] you will get the result of all of those numbes cubed eg [1,8,27]
+
+      The "x" in the curly brackets is representing each item in the array and ** is syntax for "exponent".
+
+      Hopefully this has been helpful for you and you can use the map enumerable in the future
+
+      See you next time
+      Julian
+      </div>
+  </body>
+</html>
