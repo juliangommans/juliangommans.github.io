@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="../stylesheets/blog-stylesheet.css" />
+    <title>Ruby classes and you</title>
+  </head>
+  <body>
+    <div id="post-title"><h2><span class="rainbow">Ruby classes and you</span></h2></div>
+    <div class="subheadings" id="author">Julian Gommans</div>
+    <div class="subheadings" id="date-time">11/1/2015</div>
+    <div class="subheadings" id="category">Technical Blog</div>
+    <div id="content">
+      <p>What is a ruby class and why would you use one?</p>
+        <p>A ruby class is essentially a group of methods that take the information you put into it, and then do something wiht that information depending on what methods (from within the class) you call. To take a real world example lets look at banking. We'll assum you've already created the account and there is some money in there. I'll put out how the class allows you to do things to this bank account in the following list. </p>
+          <ul> <li>A class begins with an initialization that accepts some data (for this banking example lets say your name and password)</li>
+            <li>As this is something very important you will need to check that the password is right so in the initialisation you'll need an "if/else" statement that checks the password matches whatever the one you setup with is (raising an error if it's wrong)</li>
+              <li>Now within the class you can create and call certain methods such as "withdraw", "balance" and "deposit". To call these you would simply enter "your_class.method". Inside each method you can put further arguments such as "number to withdraw or deposit"</li></ul>
+          <p> So as all this has hopefully shown you, you can use classes to cover a topic like a bank account to easily have multiple functions and checks. A class having an initialize with a "password" means the user only has to enter it once where as creating each individual method each time you would have to re-enter your "account name" and "password".</P>
+            <p>That is how classes work in Ruby, have a great day.</p>
+    </div>
+  </body>
+</html>
