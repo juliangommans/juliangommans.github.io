@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" rel="stylesheet" href="../stylesheets/blog-stylesheet.css" />
+    <title>Blocs, Procs & Lambdas</title>
+  </head>
+  <body>
+    <div id="post-title"><h2><span class="rainbow">Blocs, Procs & Lambdas</span></h2></div>
+    <div class="subheadings" id="author">Julian Gommans</div>
+    <div class="subheadings" id="date-time">17/1/2015</div>
+    <div class="subheadings" id="category">Technical Blog</div>
+    <div id="content"><p>What is a Bloc, a Proc or a Lambda?</p>
+    <p>There is a lot of similarity between the three mechanics, however the subtle differneces is what makes them important and useful. These are all forms of methods that we use to interact with our data.</p>
+    <p>Lets start with Blocs. I learn best from examples so I will try my best to give examples. A bloc is what you use most often in the early/learning stages of Ruby. When you want to do something like "double all items in an array" you will end up using a bloc. For example:</p>
+    <p> [1,2,3,4].each {|i| i * 2}    #=> [2,4,6,8] </p>
+    <p> The above code is quite simply going to take all of the items and double them. The method you've used is a bloc. It takes a few lines of code and applies them to the data to give a result. One of the biggest flaws with a block is that it is not very repeatable and in certain circumstances can become very messy and bloated. Which brings us to the next mechanic...</p>
+    <p> Procs! Procs are basically a saved bloc, I like to think of them as mini classes. You assign a name to a blac and can later reuse that block just by calling the Proc name which can make code a lot faster, easier to read and just look better. Just like before lets get into an example</p>
+    <p> multiply = Proc.new {|i| i * 2} </p>
+    <p> [1,2,3,4].map!(&multiply)    #=> [2,4,6,8]</p>
+    <p> As you can see we got the same result to the bloc example, the main difference being that, while more code for one example, if you wanted to multiply multiple thing it would very quickly become more efficient to just put ".map!(&multiply)". There is another thing a Proc is useful for, if you have several lines of self running code within a proc then you can call it simply by putting "proc_name.call"</p>
+    <p> Last but not lease, Lambda. Lambda's are a lot like Procs, the way you set them up and use them are almost identical, the first difference being that you use "lambda" instead or "Proc.new" to set them up. As replacing Proc.new in the previous example would yeild the same result I'll instead use an example to show the difference.</p>
+    <p> Lambda's greatest benefit (or weakness I guess) is that it checks for all arguments whereas Procs do not, meaning Procs will run anyway and return nil where there are no arguments, while lambdas will return "argumenterror Wrong number of arguments". The other difference is that a lambda will throw back to the calling method and return the last thing that method outputs while a Proc will return immediately</p>
+    <p> I hope this has been helpful and you now have a better understanding of what each mechanic does and when/how/why you would use them. Cheers for now, Julian</p></div>
+
+  </body>
+</html>
