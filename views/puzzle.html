@@ -1,0 +1,66 @@
+<!DOCTYPE=html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../libs/gridstack.css" />
+		<link rel="stylesheet" href="../stylesheets/puzzle.css" />
+		<script type="text/javascript" src='../libs/underscore.js'></script>
+		<script type="text/javascript" src='../libs/jquery.js'></script>		
+		<script type="text/javascript" src='../libs/jquery-ui.js'></script>
+		<script type="text/javascript" src='../libs/gridstack.all.js'></script>
+    <script type="text/javascript" src="../javascript/puzzle.js"/> </script>
+    <script type="text/javascript">
+			$(function () {
+			    var options = {
+			        cellHeight: 80,
+			        verticalMargin: 0,
+			        horizontalMargin: 0,
+			        disableResize: true,
+			        height: 24
+			    };
+			    $('.grid-stack').gridstack(options);
+			});
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			Puzzle Time
+		</div>
+		<div class="controller">
+			<button class="red-cross-puzzle">Red Cross</button>
+		</div>
+		<div class="main-content">
+			<div class="grid-stack">
+		    <div class="grid-stack-item"
+		        data-gs-x="0" data-gs-y="0"
+		        data-gs-width="2" data-gs-height="2">
+          <div class="grid-stack-item-content grid-stack-red"></div>
+		    </div>
+		    <div class="grid-stack-item"
+		        data-gs-x="2" data-gs-y="0"
+		        data-gs-width="2" data-gs-height="2">
+          <div class="grid-stack-item-content grid-stack-blue"></div>
+		    </div>		    
+		    <div class="grid-stack-item"
+		        data-gs-x="4" data-gs-y="0"
+		        data-gs-width="2" data-gs-height="2">
+          <div class="grid-stack-item-content grid-stack-red"></div>
+		    </div>
+		    <div class="grid-stack-item"
+		        data-gs-x="6" data-gs-y="0"
+		        data-gs-width="2" data-gs-height="2">
+          <div class="grid-stack-item-content grid-stack-blue"></div>
+		    </div>
+				<div class="grid-stack-item"
+		        data-gs-x="8" data-gs-y="0"
+		        data-gs-width="2" data-gs-height="2">
+          <div class="grid-stack-item-content grid-stack-red"></div>
+		    </div>
+		    <div class="grid-stack-item"
+		        data-gs-x="10" data-gs-y="0"
+		        data-gs-width="2" data-gs-height="2">
+          <div class="grid-stack-item-content grid-stack-blue"></div>
+		    </div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+.header {
+	height: 100px;
+	width: 100%;
+	text-align: center;
+}
+
+.main-content {
+	border: 2px gray solid;
+	margin: 10px;
+}
+
+.grid-stack-item-content {
+	left: 0 !important;
+	right: 0 !important;
+}
+
+.grid-stack-red {
+	background-color: red;
+}
+.grid-stack-blue {
+	background-color: blue;
+}
+.grid-stack-white {
+	background-color: white;
+}
