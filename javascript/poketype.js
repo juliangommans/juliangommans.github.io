@@ -34,7 +34,7 @@ $( document ).ready(function() {
 	// Ajax type fetches
     for (i=0; i<typeTotal; i++){
     	const currentType = i+1
-	    $.get('http://pokeapi.co/api/v2/type/' + currentType, function( data, response, xhr ) {
+	    $.get('https://pokeapi.co/api/v2/type/' + currentType, function( data, response, xhr ) {
 			if (response === "success"){
 				successes.push(response)
 				types.push(data)
