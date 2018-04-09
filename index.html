@@ -2,49 +2,124 @@
 <html>
   <head>
     <link type="text/css" rel="stylesheet" href="stylesheets/homepage.css"/>
-    <script type="text/javascript" src="javascript/homepage.js"/> </script>
+    <script type="text/javascript" src='./libs/jquery.js'></script>
+    <script type="text/javascript" src='./data/pokemon.js'></script>
+    <script type="text/javascript" src="javascript/homepage/asteroids.js"/> </script>    
+    <script type="text/javascript" src="javascript/homepage/game-manager.js"/> </script>
     <title>Julian's Website</title>
   </head>
     
   <body>
-    <img src="imgs/banner.jpg"/>     
-    <div id="header">
-      <h1> <span class="rainbow">Julian's Magical Website</span></h1>
+    <div id="background">
+      <div class="background-image">
+        <h1 class="header-text">Julian's Website</h1>
+      </div>
+      <div class="asteroids">
+        
+<!--         <svg height="200" width="200">
+          <polygon points="80,10 140,30 160,100 120,160 70,140 30,80 50,20"/>
+        </svg> -->
+      </div>
+
+      <div class="central-console-wrapper">
+        <!-- information boxes -->
+        <div class="score console-info ui-display">Score: 0</div>
+        <div class="fuel console-info ui-display">Fuel: 100%</div>
+        <div class="ammo console-info ui-display">Ammo: 12/12</div>
+        <!-- circle console -->
+        <div class="crosshair-box">
+          <div class="crosshairs crosshairs-top"></div>
+          <div class="crosshairs crosshairs-bot"></div>
+          <div class="crosshairs crosshairs-left"></div>
+          <div class="crosshairs crosshairs-right"></div>
+        </div>
+        <div class="solid-inner-circle central-console"></div>        
+        <div class="dashed-inner-circle central-console"></div>
+        <div class="dotted-outer-circle central-console"></div>
+        <div class="solid-middle-circle-1 central-console"></div>
+        <div class="solid-middle-circle-2 central-console"></div>
+      </div>
+
+      <div class="game-over-screen modal">
+         <div class="modal-content">
+          <div class="modal-inner-content">
+            <h3>Game Over</h3>
+            <table summary="table to display the end score">
+              <tbody>
+                <tr class="ui-display score-screen-row">
+                  <td>Score:</td>
+                  <td class="total-score">33</td>
+                </tr>
+                <tr class="ui-display score-screen-row">
+                  <td>Accuracy:</td>
+                  <td class="accuracy-score">50% (12/24)</td>
+                </tr>
+                <tr class="ui-display score-screen-row">
+                  <td>Asteroids Hit:</td>
+                  <td class="missed-score">30% (9/30)</td>
+                </tr>
+                <tr class="ui-display score-screen-row">
+                  <td>Speed:</td>
+                  <td class="speed-score">87%</td>
+                </tr>
+                <tr class="ui-display score-screen-row">
+                  <td>Overall Rating:</td>
+                  <td class="overall-rating">55.6%</td>
+                </tr>                
+                <tr class="ui-display score-screen-row">
+                  <td>Calculated Score:</td>
+                  <td class="calculated-score">18.3</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="action-buttons">
+            <button class="ui-display replay">Replay</button>
+            <button class="ui-display close">Abort</button>
+          </div>
+        </div>
+      </div>
+
+<!-- 
+      <div class="enemies">
+        <div class="enemy">
+          <div class="exhaust">
+            <div class="red flame"></div>
+            <div class="orange flame"></div>
+            <div class="yellow flame"></div>
+            <div class="white flame"></div>
+          </div>
+          <div class="top ship-component">
+            <div class="cockpit"></div>
+          </div>
+          <div class="bottom ship-component"></div>
+          <div class="left ship-component"></div>
+          <div class="right ship-component"></div>
+        </div>
+      </div>
+ -->
+
+      <div class="side-menu">
+          <ul>
+            <li>
+              <a class="link ui-display" href="https://github.com/juliangommans">Github</a>
+            </li>
+            <li>
+               <a class="link ui-display" href="views/puzzle.html">Puzzle - W.I.P</a>
+            </li>
+            <li>
+               <a class="link ui-display" href="views/poketype.html">Poketype</a>
+            </li>            
+            <li>
+               <a class="link ui-display" href="views/pokechart.html">Pokechart</a>
+            </li>
+          </ul>
+          <div class="arrow-popout">
+            <span >></span>
+          </div>
+      </div>
     </div>
-    <div class="sidebar">
-      <table class="sidebartable">        
-        <tr>
-          <td><a class="links" href="blog/t1-git-blog.html">Technical Blog</a></td>
-        </tr>
-        <tr>
-          <td><a class="links" href="blog/c1-chefs-kitchen.html">Cultural Blog</a></td>
-        </tr>
-        <tr>
-          <td><a class="links" href="https://github.com/juliangommans">Github</a></td>
-        </tr>
-        <tr>
-          <td><a class="links" href="views/puzzle.html">Puzzle</a></td>
-        </tr>
-        <tr>
-          <td><a class="links" href="views/poketype.html">Poketype</a></td>
-        </tr>
-      </table>
-    </div>
-    <div class="mainbody">
-      <p>My name is Julian, I am an aspiring developer. Learn more about me and my work through this website. I hope you enjoy your visit.</p>
-    </div>
-    <div class="twiter-timeline">
-      <a class="twitter-timeline" href="https://twitter.com/JulesGommans" data-widget-id="542223004051054592">Tweets by @JulesGommans</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-    </div>
-    <div class="footer">
-      <ul > 
-        <li><a class="links" href="www.linked-in.com">linked-in </a></li>
-        <li><a class="links" href="mailto:julian.s.gommans@gmail.com">Email </a></li> 
-        <li><a class="links" href="www.twitter.com">Twitter </a></li> 
-      </ul>
-      <h2 class="rainbow footer-note">Thanks for stopping by</h2>
-    </div>
+
   </body>
 </html>
                 

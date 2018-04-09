@@ -1,8 +1,8 @@
 $( document ).ready(function() {
 
     const typeTotal = 18
-    let types = []
-    let successes = []
+    let types = [],
+    	successes = []
 
     // Loading spinne (chart.js)
     const canvas = document.getElementById('myChart');
@@ -50,10 +50,10 @@ $( document ).ready(function() {
     	const navButton = $('.nav-buttons').append("<a class='button " + data.name + " " + data.name + "-color' data-filter='." + data.name + "'>" + data.name + "</a>")
     	adddata(data)
     	data.pokemon.forEach( (item) => {
-	    	const pokemon = item.pokemon
-	    	const $el = $('.pokemon-dump').find("." + pokemon.name)
+	    	const p = item.pokemon
+	    	const $el = $('.pokemon-dump').find("." + p.name)
 	    	if($el.length < 1){
-	    		$('.pokemon-dump').append("<a data-link='" + pokemon.url + "' class='pokemon " + data.name + " " + pokemon.name + "'><div class='color-box'><div class='first-type " + data.name + "-color'></div></div><span class='name'>" + pokemon.name + "</span></a>")
+	    		$('.pokemon-dump').append("<a data-link='" + p.url + "' class='pokemon " + data.name + " " + p.name + "'><div class='color-box'><div class='first-type " + data.name + "-color'></div></div><span class='name'>" + p.name + "</span></a>")
 	    	} else {
 	    		$($el).addClass(data.name)
 	    		$($el.find('.color-box')).append("<div class='second-type " + data.name + "-color'></div>")
@@ -213,5 +213,4 @@ $( document ).ready(function() {
 			backgroundColor: "#e898e8"
 		}
     }
-
 })

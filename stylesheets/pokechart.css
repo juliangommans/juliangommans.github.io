@@ -1,0 +1,8 @@
+.small-graphs {
+	display: flex;
+	flex-direction: column;
+}
+
+// .small-graphs div {
+// 	width: 50%;
+// }

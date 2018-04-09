@@ -1,0 +1,51 @@
+<!DOCTYPE=html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../stylesheets/pokechart.css" />
+		<script type="text/javascript" src='../libs/underscore.js'></script>
+		<script type="text/javascript" src='../data/pokemon.js'></script>
+		<script type="text/javascript" src='../libs/jquery.js'></script>		
+		<script type="text/javascript" src='../libs/jquery-ui.js'></script>
+		<script type="text/javascript" src='../libs/gridstack.all.js'></script>
+    	<script type="text/javascript" src="../javascript/pokechart.js"/> </script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+
+	</head>
+	<body>
+		<div class="header content">
+			<div class="nav-buttons container">
+
+
+			</div>
+		</div>	
+
+		<div class="body content">
+			<div class="wrapper">
+				<div>
+					<div class="nav-buttons">
+						<label> Main Bar Chart </label>
+						<select class="main-bar-chart">
+							<option value="count">Count</option>
+							<option value="total-avg">Stats Total Average</option>
+							<option value="indiv-avg">Stats Individual Average</option>
+						</select>
+					</div>
+					<canvas id="main-bar-chart"></canvas>
+				</div>
+				<div class="small-graphs">
+					<div>
+						<canvas id="pie-chart"></canvas>
+					</div>
+					<div>
+						<div class="nav-buttons">
+							<label> Small Bar Chart </label>
+							<select class="small-bar-chart">
+							</select>
+						</div>
+						<canvas id="small-bar-chart"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

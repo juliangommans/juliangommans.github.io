@@ -4,87 +4,475 @@ html {
 }
 body {
   margin: 0;
+  overflow: hidden;
+  height: 100%;
 }
-/* Header */
 h1 {
   text-align: center;
   margin-left: auto ;
   margin-right: auto ;
 }
-#header {
-  width: 90%;
-  /*background-color: black;*/
-  /*border: 5px white solid;*/
+#background {
+  width: 100%;
+  height: 100%;
   margin-left: auto ;
   margin-right: auto ;
   margin-bottom: 20px;
+  position: relative;
 }
-/* Image */
-img {
-  height: 250px;
+
+.background-image {
   width: 100%;
-  margin-left: auto ;
-  margin-right: auto ;
-}
-.rainbow {
-  background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-  color:transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-td {
-  height: 50px;
-  width: 150px;
-  border-radius: 20px;
-  background-color: orange;
-  border: 1px solid black;
-  font-style: bold;
-  text-align: center;
-}
-.links {
-  color: black;
-  text-decoration: none;
-}
-.links:hover {
-  text-decoration: none;
-  color: purple;
+  max-width: 100%;
+  background: url('../imgs/nasa-nebula.jpg') no-repeat center;
+  min-height: 100%;
+  background-size: 2000px 100%;
 }
 
-.mainbody {
-  width: 80%;
-  font-size: 25px;
-  text-align: left;
-  display: inline-block;
-  float: right;
+
+.header-text {
+  padding-top: 20px;
+  color: #fff;
 }
 
-.sidebar {
-  text-align: center;
-  width: 18%;
-  /*display: inline-block;*/
-  float: left;
+.side-menu {
+  font-size: 30px;
+  color: #fff;
+  transition: 0.8s ease-out;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  left: -200px;
 }
 
-.footer {
-  background-color: #2c055f;
-  clear: both;
-  padding-bottom: 10px;
+.side-menu:hover {
+  left: -45px;
 }
-.footer ul {
-  align-items:center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+
+.side-menu ul {
   list-style: none;
 }
-.footer ul .links {
+
+.side-menu ul .link {
+  display: inline-block;
+/*  background-color: rgba(0,100,255,0.5);
+  border: rgba(0, 255, 255, 0.8) 2px solid;
+  color: rgba(0, 255, 255, 1);*/
+  font-size: 18px;
+  font-weight: 100;
+  font-family:Verdana;
+  -webkit-font-smoothing: antialiased;
   display: list-item;
-  color: white;
-  padding-top: 20px;
+  padding: 10px 20px;
   text-decoration: none;
 }
-.footer-note {
-  padding-top: 20px;
+
+.side-menu ul .link:hover {
+  background: linear-gradient(to bottom, rgba(0,200,200,0.1) 10%, rgba(0,200,200,0.4));
+}
+
+.side-menu ul li:first-child .link {
+  /* border-top-left-radius: 12px; */
+  border-top-right-radius: 12px;
+}
+
+.side-menu ul li:nth-child(even) .link {
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
+
+.side-menu ul li:last-child .link {
+  /* border-bottom-left-radius: 12px; */
+  border-bottom-width: 2px;
+  border-bottom-right-radius: 12px;
+}
+
+.arrow-popout {
+  position: absolute;
+  padding: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 200px;
+}
+
+.arrow-popout span {
+  transition: 0.8s ease-out;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  opacity: 1;
+  padding-left: 5px;
+}
+
+.side-menu:hover .arrow-popout span {
+  opacity: 0;
+  left: 300px;
+}
+
+.central-console-wrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: -550px 0 0 -200px;
+  left: 50%;
+  /*top: 50%;*/
+}
+
+.central-console {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  box-sizing: border-box; 
+  z-index: 3;
+}
+
+.solid-inner-circle {
+  width: 270px;
+  height: 270px;
+  margin: -135px 0 0 -135px;
+  border: 8px solid rgba(0, 255, 255, 0.15);
+}
+
+.dashed-inner-circle {
+  width: 300px;
+  height: 300px;
+  margin: -150px 0 0 -150px;
+  border: 3px dashed rgba(0, 255, 255, 0.65);
+  animation: Anti-Clockwise-Spin infinite 40s ease-in-out;
+}
+
+.dotted-outer-circle {
+  width: 350px;
+  height: 350px;
+  margin: -175px 0 0 -175px;
+  border: 3px dotted rgba(0, 255, 255, 0.4);
+  animation: Clockwise-Spin infinite 30s linear;
+}
+  
+.solid-middle-circle-1 {
+  width: 330px;
+  height: 330px;
+  margin: -165px 0 0 -165px;
+  border: 2px solid rgba(200, 200, 200, 0.4);
+}
+  
+.solid-middle-circle-2 {
+  width: 320px;
+  height: 320px;
+  margin: -160px 0 0 -160px;
+  border: 2px solid rgba(200, 200, 200, 0.4);
+}
+
+@keyframes Clockwise-Spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes Anti-Clockwise-Spin {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+
+/* ASTEROIDS */
+
+
+.asteroids {
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  position: absolute;
+}
+.asteroids polygon {
+    /*fill-opacity: 0;*/
+    stroke: lightgray;
+    stroke-width: 3;
+}
+.asteroid {
+  z-index: 1;
+  fill: rgba(20,20,40,0.5); /*#191970*/
+  stroke: rgb(160,160,160);
+  stroke-width: 4px;4
+  opacity: 1;
+  animation: Clockwise-Spin 32s infinite linear;
+  position: absolute;
+}
+.asteroid-particle {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background-color: rgb(160,160,160);
+  transition: 1s ease-out;
+}
+
+
+/* Console Info */
+
+
+.ui-display {
+  background: linear-gradient(to top, rgba(0,200,200,0.1) 10%, rgba(0,200,200,0.4));
+  border: rgba(0, 255, 255, 0.6) 2px solid;
+  z-index: 2;
+  color: rgba(0, 255, 255, 6);
+}
+
+/* Console */
+.console-info {
+  pointer-events: none;
+  position: absolute;
   text-align: center;
+  font-weight: 100;
+  font-size: small;
+  width: 95px;
+  padding: 10px 5px;
+  border-radius: 10px;
+}
+.score {
+  top: 0;
+  right: 0;
+}
+.fuel {
+  bottom: 0;
+  right: 0;
+}
+.ammo {
+  top: 0;
+  left: 0;
+}
+
+
+/* Crosshairs */
+
+
+.crosshair-box {
+  width: 100px;
+  height: 100px;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+
+}
+.crosshairs {
+  position: absolute;
+  border-radius: 0;
+  background: rgba(0,200,200,0.4);
+}
+.crosshairs-top {
+  height: 40px;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  margin-left: -1px;
+}
+.crosshairs-left {
+  left: 0;
+  top: 50%;
+  width: 40px;
+  height: 2px;
+  margin-top: -1px;
+}
+.crosshairs-bot {
+  height: 40px;
+  bottom: 0;
+  right: 50%;
+  width: 2px;
+  margin-right: -1px;
+}
+.crosshairs-right {
+  right: 0;
+  top: 50%;
+  width: 40px;
+  height: 2px;
+  margin-top: -1px;
+}
+
+
+/* Modal - Game Over screen */
+
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 5; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.6);
+  margin: 15% auto;
+  padding: 20px;
+  border: rgba(0, 255, 255, 0.6) 2px solid;
+  border-radius: 10px;
+  width: 50%;
+}
+.modal-inner-content {
+  margin: auto;
+}
+
+.game-over-screen h3 {
+  color: rgba(0, 255, 255, 6);
+}
+.score-screen-row td {
+  padding: 10px 8px;
+}
+.action-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.action-buttons button {
+  padding: 10px 14px;
+}
+.action-buttons button:hover,
+.action-buttons button:focus {
+  text-decoration: none;
+  background: linear-gradient(to bottom, rgba(0,200,200,0.1) 10%, rgba(0,200,200,0.4));
+  cursor: pointer;
+}
+
+
+
+
+/* Enemies - currently unused */
+.enemies div {
+
+}
+
+div.enemy {
+  top: 100px;
+  left: 100px;
+  width: 62px;
+  height: 62px;
+  position: absolute;
+  opacity: 0.8;
+}
+
+.enemy .ship-component {
+  background-color: grey;
+  position: absolute;
+  border: lightgray 1px solid;
+}
+
+.enemy .top {
+  border-bottom: 0;
+  top: 0;
+  left: 50%;
+  margin-left: -11px;
+  width: 20px;
+  height: 25px;
+}
+
+.enemy .bottom {
+  border-top: 0;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -11px;
+  width: 20px;
+  height: 25px;
+}
+
+.enemy .left {
+  border-right: 0;
+  left: 0;
+  top: 50%;
+  width: 20px;
+  height: 15px;
+}
+
+.enemy .right {
+  border-left: 0;
+  right: 0;
+  top: 50%;
+  width: 20px;
+  height: 15px;
+}
+
+.enemy .cockpit {
+  width: 20px;
+  height: 5px;
+  position: absolute;
+  top: 10px;
+  border-top: 1px solid aqua;
+  border-bottom: 1px solid aqua;
+  background-color: blue; 
+}
+
+
+.enemy .exhaust {
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  bottom: -40px;
+  transform-origin: center bottom;
+  animation-name: flicker;
+  animation-duration: 3ms;
+  animation-delay: 200ms;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.flame {
+  bottom: 0;
+  position: absolute;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  transform: rotate(135deg) scale(1.5, 1.5);
+}
+.yellow {
+  left: 15px;
+  width: 30px;
+  height: 30px;
+  background: gold;
+  box-shadow: 0px 0px 9px 4px gold;
+}
+.orange {
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  background: orange;
+  box-shadow: 0px 0px 9px 4px orange;
+}
+.red {
+  left: 5px;
+  top: 20px;
+  width: 50px;
+  height: 50px;
+  background: OrangeRed;
+  border: 1px solid OrangeRed;
+  box-shadow: 0px 0px 5px 4px OrangeRed;
+}
+.white {
+  left: 15px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  background: white;
+  box-shadow: 0px 0px 9px 4px white;
+}
+
+ @keyframes flicker{
+  0%   {transform: rotate(-1deg);}
+  20%  {transform: rotate(1deg);}
+  40%  {transform: rotate(-1deg);}
+  60%  {transform: rotate(1deg) scaleY(1.04);}
+  80%  {transform: rotate(-2deg) scaleY(0.92);}
+  100% {transform: rotate(1deg);}
 }
