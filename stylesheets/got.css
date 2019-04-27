@@ -1,0 +1,50 @@
+body {
+  padding: 20px;
+}
+
+.header-section {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox-section {
+  padding: 0 40px;
+}
+
+ul.checkbox-form {
+  padding-left: 0;
+}
+
+.row {
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px grey;
+  display: flex;
+  flex-direction: row;
+  width: 100%
+}
+.input-wrapper {
+  min-width: 15%;
+  justify-content: center;
+  align-items: center;
+}
+.droppable {
+  border: solid 1px black;
+  margin: 10px;
+  min-height: 100px;
+  width: 20%;
+}
+
+.character-header {
+  width: 100%;
+  background-color: lightgrey;
+  padding: 5px;
+}
+
+.character {
+  padding: 5px;
+  width: 120px;
+}
