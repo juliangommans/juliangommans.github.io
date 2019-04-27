@@ -1,26 +1,48 @@
 $( document ).ready(function() {
 
-  const fileId = '1stX3-Tl4fBGw425tso4dyBOosXZ2Duv_2lB4cn2xd2M'
-  const url = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`
-  let fileData = ''
+  // const fileId = '1stX3-Tl4fBGw425tso4dyBOosXZ2Duv_2lB4cn2xd2M'
+  // const url = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`
+  //
+  // $.ajax({
+  //     url: url,
+  //     type: 'GET',
+  //     // dataType: 'json',
+  //     headers: {
+  //         Authorization: 'Bearer ya29.Glv4Buc418KQQGctXHtm_kANxkUqALWr-UbH5JvPMAgW6lONsgCD6TMiyaVgW1xeUOgRxfUHDspWv77LmvdU3x4bw6Xmc5DlpMl0bm9Bk2roFO_oJyAPna07xxf7'
+  //     },
+  //     // contentType: 'application/json; charset=utf-8',
+  //     success: function (result) {
+  //       console.log('zuccess');
+  //       console.log({result});
+  //        // CallBack(result);
+  //     },
+  //     error: function (error) {
+  //       console.error({error});
+  //     }
+  // });
 
+  const postUrl = 'https://www.googleapis.com/upload/drive/v3/files?uploadType=media HTTP/1.1'
+  const data = [{id:1,name:'test'}]
   $.ajax({
-            url: URL,
-            type: 'GET',
-            // dataType: 'json',
-            headers: {
-                Authorization: 'Bearer ya29.Glv4Buc418KQQGctXHtm_kANxkUqALWr-UbH5JvPMAgW6lONsgCD6TMiyaVgW1xeUOgRxfUHDspWv77LmvdU3x4bw6Xmc5DlpMl0bm9Bk2roFO_oJyAPna07xxf7'
-            },
-            // contentType: 'application/json; charset=utf-8',
-            success: function (result) {
-              console.log('zuccess');
-              console.log({result});
-               // CallBack(result);
-            },
-            error: function (error) {
-              console.error({error});
-            }
-        });
+      url: postUrl,
+      type: 'POST',
+      dataType: 'json',
+      headers: {
+          'Authorization': 'Bearer ya29.Glv4Buc418KQQGctXHtm_kANxkUqALWr-UbH5JvPMAgW6lONsgCD6TMiyaVgW1xeUOgRxfUHDspWv77LmvdU3x4bw6Xmc5DlpMl0bm9Bk2roFO_oJyAPna07xxf7',
+          'Content-Type':'application/json'
+      },
+      data: JSON.stringify(data),
+
+      success: function (result) {
+        console.log('zuccess');
+        console.log({result});
+         // CallBack(result);
+      },
+      error: function (error) {
+        console.error({error});
+      }
+  });
+
 
   let string = ''
   for (let i = 0; i < CHARACTERS.length; i++){
