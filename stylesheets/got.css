@@ -10,21 +10,20 @@ body {
   align-items: center;
 }
 
-.checkbox-section {
-  padding: 0 40px;
-}
-
-ul.checkbox-form {
-  padding-left: 0;
+.results-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%,auto;
+  align-items: center;
 }
 
 .row {
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   border-bottom: solid 1px grey;
   display: flex;
   flex-direction: row;
-  width: 100%
+  width: 50%
 }
 .input-wrapper {
   min-width: 15%;
@@ -39,12 +38,40 @@ ul.checkbox-form {
 }
 
 .character-header {
-  width: 100%;
   background-color: lightgrey;
   padding: 5px;
+  font-weight: bold;
 }
 
 .character {
   padding: 5px;
   width: 120px;
+}
+
+ul>li>p {
+  margin: 0;
+}
+
+.table {
+  width: 50%;
+}
+
+.graph {
+  width: 50%;
+  border-bottom: 1px solid;
+  padding: 10px 0;
+}
+
+@media only screen and (max-width: 666px){
+  .graph {
+    width: 100%;
+  }
+}
+
+.graph-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
 }

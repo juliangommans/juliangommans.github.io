@@ -1,85 +1,122 @@
 $( document ).ready(function() {
 
-  // const fileId = '1stX3-Tl4fBGw425tso4dyBOosXZ2Duv_2lB4cn2xd2M'
-  // const url = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`
-  //
-  // $.ajax({
-  //     url: url,
-  //     type: 'GET',
-  //     // dataType: 'json',
-  //     headers: {
-  //         Authorization: 'Bearer ya29.Glv4Buc418KQQGctXHtm_kANxkUqALWr-UbH5JvPMAgW6lONsgCD6TMiyaVgW1xeUOgRxfUHDspWv77LmvdU3x4bw6Xmc5DlpMl0bm9Bk2roFO_oJyAPna07xxf7'
-  //     },
-  //     // contentType: 'application/json; charset=utf-8',
-  //     success: function (result) {
-  //       console.log('zuccess');
-  //       console.log({result});
-  //        // CallBack(result);
-  //     },
-  //     error: function (error) {
-  //       console.error({error});
-  //     }
-  // });
+  const SCORE_MAP = {
+    "Definitely Dies (4)": 4,
+    "Probably Dies (2)": 2,
+    "Maybe Dies (1)": 1,
+    "Survives (0)": 0
+  }
 
-  const postUrl = 'https://www.googleapis.com/upload/drive/v3/files?uploadType=media HTTP/1.1'
-  const data = [{id:1,name:'test'}]
-  $.ajax({
-      url: postUrl,
-      type: 'POST',
-      dataType: 'json',
-      headers: {
-          'Authorization': 'Bearer ya29.Glv4Buc418KQQGctXHtm_kANxkUqALWr-UbH5JvPMAgW6lONsgCD6TMiyaVgW1xeUOgRxfUHDspWv77LmvdU3x4bw6Xmc5DlpMl0bm9Bk2roFO_oJyAPna07xxf7',
-          'Content-Type':'application/json'
-      },
-      data: JSON.stringify(data),
-
-      success: function (result) {
-        console.log('zuccess');
-        console.log({result});
-         // CallBack(result);
-      },
-      error: function (error) {
-        console.error({error});
-      }
-  });
-
-
-  let string = ''
-  for (let i = 0; i < CHARACTERS.length; i++){
-    const character = CHARACTERS[i]
-    if (character) {
-      string += `
-      <li class="row">
-        <div class="character">
-          <div class="character-header">${character.name}</div>
-          <div>${character.description}</div>
-        </div>
-          <div class='input-wrapper'>
-            <input type='radio' name='${character.id}' class='survive' value='0' data-score='0' checked/>
-          </div>
-          <div class='input-wrapper'>
-            <input type='radio' name='${character.id}' class='maybe' value='1' data-score='1'/>
-          </div>
-          <div class='input-wrapper'>
-            <input type='radio' name='${character.id}' class='probably' value='2' data-score='2'/>
-          </div>
-          <div class='input-wrapper'>
-            <input type='radio' name='${character.id}' class='definitely' value='4' data-score='4'/>
-          </div>
-      </li>
-      `
+  const STATUS_CHECK = (status, score) => {
+    switch(status){
+      case 'alive':
+        return score === 0 ? 0 : score * -1
+      case 'dead':
+        return score === 0 ? -1 : score
+      case 'n/a':
+        return 0
     }
   }
 
-  $('.checkbox-form').prepend(string)
-
-  $('.check-form').click((e) => {
-    e.preventDefault()
-    const form = $("form").serializeArray()
-    console.log({e});
-    console.log({form});
+  const groomedResults = RESULTS.map((person)=>{
+    const clonePerson = Object.assign({},person)
+    delete clonePerson.Timestamp
+    delete clonePerson.Name
+    const arrayedResults = Object.keys(clonePerson)
+      .map((name) => {
+        const character = CHARACTERS.find((char)=>(char.name === name))
+        const pick = clonePerson[name]
+        const score = SCORE_MAP[pick]
+        const calculatedScore = STATUS_CHECK(character.status, score)
+        const successfullPick = calculatedScore < 0 ? false : true
+        return {
+          [name]: pick,
+          calculatedScore,
+          successfullPick
+        }
+      })
+    const totalScore = arrayedResults.reduce((accumulator, obj)=> (obj.calculatedScore + accumulator),0)
+    const totalSuccessfulPicks = arrayedResults.reduce((accumulator, obj)=> {
+      const correctPick = obj.successfullPick ? 1 : -1
+      return correctPick + accumulator
+    },0)
+    return {
+      name: person.Name,
+      results: arrayedResults,
+      totalScore,
+      totalSuccessfulPicks
+    }
   })
 
+  const buildResultsDisplay = (array, dataType, location) => {
+    let string = ''
+    const sortedArray = array.sort((a,b) => (b[dataType] - a[dataType]))
+    for (let i = 0; i < sortedArray.length; i++){
+      const item = sortedArray[i]
+      if (item) {
+        string += `
+        <li>
+          <div class="character row">
+            <div class="character-header">${item.name}</div>
+            <div>${item[dataType]}</div>
+          </div>
+        </li>
+        `
+      }
+    }
 
+    $('.'+location).append(string)
+  }
 
+  buildResultsDisplay(groomedResults, 'totalScore', 'overall-score')
+  buildResultsDisplay(groomedResults, 'totalSuccessfulPicks', 'highest-accurate-picks')
+
+  const expandGraphs = () => {
+    CHARACTERS.forEach((char, index) => {
+      $('.graph-section').append(`
+        <div class='graph'>
+          <canvas id="${char.id}"></canvas>
+        </div>
+        `)
+      const options = [
+          "Definitely Dies (4)",
+          "Probably Dies (2)",
+          "Maybe Dies (1)",
+          "Survives (0)"
+        ]
+      const backgroundColor = [
+        'red',
+        'orange',
+        'yellow',
+        'green'
+      ]
+      const rawData = options.map((option)=>{
+        return groomedResults.filter((person) => (
+          person.results[index][char.name] === option
+        )).length
+      })
+      console.log({rawData});
+      const data = {
+        datasets: [{
+          data: rawData,
+          backgroundColor
+        }],
+        labels: options.map((item) => (
+          item.split('(')[0]
+        ))
+      }
+      const canvas = document.getElementById(char.id)
+      new Chart(canvas,{
+    		type: 'pie',
+    	    data: data,
+    	    options: {
+            title: {
+              display: true,
+              text: char.name
+            }
+          }
+    	});
+    })
+  }
+  expandGraphs()
 })

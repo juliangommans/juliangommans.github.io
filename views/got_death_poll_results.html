@@ -1,0 +1,44 @@
+<!DOCTYPE=html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../stylesheets/got.css" />
+		<script type="text/javascript" src='../data/got_characters.js'></script>
+		<script type="text/javascript" src='../data/got_poll_results.js'></script>
+		<script type="text/javascript" src='../libs/underscore.js'></script>
+		<script type="text/javascript" src='../libs/jquery.js'></script>
+		<script type="text/javascript" src='../libs/jquery-ui.js'></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+		<script type="text/javascript" src='../javascript/got.js'></script>
+  </head>
+  <body>
+		<div class="header-section">
+			<h1>Game of Thrones Death Poll Results</h1>
+			<h3>Episode 3 was the big battle, everyone picked who they thought would die, and who would survive.</h3>
+			<h4>Revised Rules</h4>
+			<ul>
+				<li><p>In each section a selected character will give X points if they die, or subtract X points if they survive.</p></li>
+				<li><p>If they are unconfirmed (looks like they died but it's not certain, i.e. off screen) there will be no gain or loss.</p></li>
+				<li><p>If they die, and you left them in the "survive" column, you lose 1 point.</p></li>
+				<li><p>If they weren't in the episode and you picked them to die, you don't lose points</p></li>
+			</ul>
+		</div>
+
+		<div class='results-section'>
+			<div class='table'>
+				<h4> Total Score </h4>
+				<ol class='overall-score'>
+				</ol>
+			</div>
+
+			<div class='table'>
+				<h4> Most accurate Picks </h4>
+				<ol class='highest-accurate-picks table'>
+				</ol>
+			</div>
+		</div>
+
+		<button onclick="expandGraphs()">Show Graphs</button>
+		<div class='graph-section'>
+		</div>
+  </body>
+</html>
